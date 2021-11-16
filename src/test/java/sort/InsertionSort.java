@@ -3,6 +3,7 @@ package sort;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * 插入排序 稳定
@@ -15,6 +16,20 @@ public class InsertionSort {
         int[] A = {4, 3, 2, 1};
         int[] result = insertionSort(A, A.length);
         System.out.println(Arrays.toString(result));
+    }
+
+    @Test
+    public void testPerf() {
+        Random random = new Random();
+        int num = 1_0000_0000;
+        int[] A = new int[num];
+        for (int i = 0; i < num; i++) {
+            A[i] = random.nextInt(1000000);
+        }
+        long start = System.currentTimeMillis();
+        insertionSort(A, A.length);
+        long end = System.currentTimeMillis();
+        System.out.println("duration:" + (end - start) + " ms");//duration:18589 ms
     }
 
     public int[] insertionSort(int[] A, int n) {

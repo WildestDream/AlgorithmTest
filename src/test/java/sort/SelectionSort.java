@@ -18,6 +18,8 @@ public class SelectionSort {
         System.out.println(Arrays.toString(result));
     }
 
+
+
     public int[] selectionSort(int[] A, int n) {
         for (int i = n - 1; i > 0; i--) {
             int maxIndex = 0;
