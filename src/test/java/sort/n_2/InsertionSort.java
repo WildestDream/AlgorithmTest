@@ -1,4 +1,4 @@
-package sort;
+package sort.n_2;
 
 import org.junit.Test;
 
@@ -18,10 +18,13 @@ public class InsertionSort {
         System.out.println(Arrays.toString(result));
     }
 
+    /**
+     * 1千万条数据，duration: 5.39h
+     */
     @Test
     public void testPerf() {
         Random random = new Random();
-        int num = 1_0000_0000;
+        int num = 100_0000;
         int[] A = new int[num];
         for (int i = 0; i < num; i++) {
             A[i] = random.nextInt(1000000);
