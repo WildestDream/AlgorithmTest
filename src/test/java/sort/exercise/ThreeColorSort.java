@@ -15,6 +15,9 @@ import java.util.Arrays;
  * 测试样例：
  * [0,1,1,0,2,2],6
  * 返回：[0,0,1,1,2,2]
+ *
+ * 思路1：左右窗口，将0向左放，将1向右放
+ * 思路2：map
  */
 public class ThreeColorSort {
 
