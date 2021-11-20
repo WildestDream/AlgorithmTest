@@ -16,7 +16,7 @@ import org.junit.Test;
  *
  * 只不过桶的大小比数组大1，而不是（max- min），这样桶的大小可控，不至于太大。
  * 另外，每个桶代表了一个数值的区间，因此一个桶内可以落入不同的数据（一个桶内的数据顺序是不确定的）
- * 但是本题目中只需要得到一个桶内的最大、最小值即可
+ * 但是本题目中只需要得到一个桶内的最大、最小值即可。
  */
 public class Gap {
 
@@ -76,6 +76,8 @@ public class Gap {
     }
 
     private int bucketNum(int[] A, int value, int min, int max) {
+        //注意：这里不要写成：(value - min) / (max - min) * A.length;
+        //在数学上含义相同，但是实际上(value - min) / (max - min) 一直是 0
         return (value - min) * A.length / (max - min);
     }
 }
