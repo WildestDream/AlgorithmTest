@@ -1,6 +1,9 @@
 package sort.exercise;
 
 
+import org.junit.Assert;
+import org.junit.Test;
+
 /**
  * 对于一个数组，请设计一个高效算法计算需要排序的最短子数组的长度。
  *
@@ -9,8 +12,21 @@ package sort.exercise;
  * 测试样例：
  * [1,4,6,5,9,10],6
  * 返回：2
+ *
+ * 【注意】这个题目一直有一个误区：
+ * 例如：1 3 2 4 5 6 7 10 9 8 11 这个数组中，（3,2） 以及 （10，9，8） 这两个序列都是需要调整的，但是返回的不是 2，而是 序列（3 2 4 5 6 7 10 9 8）的长度 9
+ *
+ * 题目更好地表达：对于一段数组A， 只要把其中的一段子序列排序了，整个数组就有序了，则这段子序列的最短长度是多少？
  */
 public class Subsequence {
+
+    @Test
+    public void test() {
+        int[] A = {1, 3, 2, 4, 5, 6, 7, 10, 9, 8, 11};
+        int minSubLen = shortestSubsequence(A, A.length);
+        Assert.assertEquals(9, minSubLen);
+    }
+
     public int shortestSubsequence(int[] A, int n) {
         if (A == null || n <= 1) {
             return 0;
