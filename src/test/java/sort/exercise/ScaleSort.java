@@ -15,7 +15,7 @@ import java.util.Arrays;
  * 实现：改进的堆排序。or: 插入排序。
  *
  *
- * 改进后的堆排序
+ * 改进后的堆排序：时间复杂度 O（N*logK）
  *
  */
 public class ScaleSort {
