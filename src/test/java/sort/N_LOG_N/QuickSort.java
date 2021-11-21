@@ -1,4 +1,4 @@
-package sort.log2_n;
+package sort.N_LOG_N;
 
 import org.junit.Test;
 
@@ -6,8 +6,22 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * 快速排序，分治算法
- * 过程中不需要创建辅助的数据结构
+ * 思路：
+ * 选择一个基准数pivot，将整个数据分区，小于A[pivot]  的放到 A[pivot] 的左边，大于 A[pivot] 的放到A[pivot] 右边，再分别对A[pivot] 左右两边的序列递归排序。
+ *
+ * 时间复杂度： nlogn
+ *
+ * 空间复杂度： O(logn)： 所需要的栈的空间，最坏：O(n) 即：每次基准都取到最大的数
+ *
+ * 稳定性：不稳定
+ *
+ * 特点：
+ * 可以证明，快速排序的平均时间复杂度也是O(nlog2n)。因此，该排序方法被认为是目前最好的一种内部排序方法
+ * “快”的含义是常数因子小
+ *
+ * 适合的场景：
+ * 对稳定性没有要求
+ * 数据量大
  */
 public class QuickSort {
 

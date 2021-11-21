@@ -1,4 +1,4 @@
-package sort.log2_n;
+package sort.exercise;
 
 import org.junit.Assert;
 import org.junit.Test;
