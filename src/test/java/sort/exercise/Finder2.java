@@ -1,4 +1,4 @@
-package sort.log2_n;
+package sort.exercise;
 
 /**
  * 现在有一个行和列都排好序的矩阵，请设计一个高效算法，快速查找矩阵中是否含有值x。

@@ -1,4 +1,4 @@
-package sort.log2_n;
+package sort.exercise;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -45,7 +45,7 @@ public class RadixSort {
         //建立10个桶，因为每个通过的元素的数量不确定，因此使用：list 表示你一个桶
         List<List<Integer>> lists = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            lists.add(new ArrayList());
+            lists.add(new ArrayList<>());
         }
 
         //分别对个、十、百、千位排序，一共倒 4 次
