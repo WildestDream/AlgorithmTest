@@ -19,29 +19,23 @@ public class AvlCheckBalance {
     }
 
     public boolean check(TreeNode root) {
-        return isBalance(root);
+        return chk(root) >= 0;
     }
 
     /**
-     * 以 node 为根节点的二叉树，同时满足：
-     * 1. 左子树是AVL数
-     * 2. 右子树是AVL数
-     * 3. 两树的高度差 ≤ 1
+     * 该函数做了两件事：
+     * 1. 若以root为根节点的树是平衡二叉树，则返回该树的深度（>=0）
+     * 2. 反之，则返回 -1，代表该树不是平衡二叉树。
      */
-    private boolean isBalance(TreeNode node) {
-        if (node == null) {
-            return true;
-        }
-        return isBalance(node.left) && isBalance(node.right) && Math.abs(len(node.left) - len(node.right)) <= 1;
-    }
-
-
-    public int len(TreeNode node) {
-        if (node == null) {
+    private int chk(TreeNode root) {
+        if (root == null) {
             return 0;
         }
-        int left = len(node.left);
-        int right = len(node.right);
-        return Math.max(left, right) + 1; //记得加1
+        int lDepth = chk(root.left);
+        int rDepth = chk(root.right);
+        if (lDepth >= 0 && rDepth >= 0 && Math.abs(lDepth - rDepth) <= 1) {
+            return Math.max(lDepth, rDepth) + 1;
+        }
+        return -1;
     }
 }
