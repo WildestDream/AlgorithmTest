@@ -45,4 +45,32 @@ public class SearchTreeTest {
         }
         return true;
     }
+
+    /**
+     * 方式2，采用递归的方式
+     */
+    private boolean checkIsSearch2(TreeNode root) {
+        return traverse(root);
+    }
+
+    private TreeNode preNode;
+
+    private boolean traverse(TreeNode node) {
+        if (node == null) {
+            return true;
+        }
+        boolean lResult = traverse(node.left);
+        if (!lResult) {
+            return false;
+        }
+        if (preNode != null && node.val < preNode.val) {
+            return false;
+        }
+        preNode = node;
+        boolean rResult = traverse(node.right);
+        if (!rResult) {
+            return false;
+        }
+        return true;
+    }
 }
