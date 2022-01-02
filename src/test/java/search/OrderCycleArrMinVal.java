@@ -44,7 +44,7 @@ public class OrderCycleArrMinVal {
         }
         int left = 0;
         int right = n - 1;
-        while (left <= right) {
+        while (left <= right) { //也可以写成true，因为一定存在最小
             if (arr[left] < arr[right]) {
                 return arr[left];
             }
@@ -52,7 +52,7 @@ public class OrderCycleArrMinVal {
             if (arr[mid] < arr[left]) {
                 right = mid;
             } else if (arr[mid] > arr[right]) {
-                left = mid + 1;
+                left = mid + 1; //这个加1非常的细节，因为arr[mid]已经大于arr[right]，所以它肯定不是最小值，因此 + 1
             } else {
                 //此时：
                 //arr[left] <= arr[mid] <= arr[right]
