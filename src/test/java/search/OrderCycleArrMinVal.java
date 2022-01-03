@@ -44,22 +44,19 @@ public class OrderCycleArrMinVal {
         }
         int left = 0;
         int right = n - 1;
+        int mid = left + (right - left) / 2;
         while (left <= right) { //也可以写成true，因为一定存在最小
             if (arr[left] < arr[right]) {
                 return arr[left];
             }
-            int mid = left + (right - left) / 2;
-            if (arr[mid] < arr[left]) {
+            if (arr[mid] > arr[left]) {
+                left = mid + 1;
+            } else if (arr[mid] < arr[right]) {
                 right = mid;
-            } else if (arr[mid] > arr[right]) {
-                left = mid + 1; //这个加1非常的细节，因为arr[mid]已经大于arr[right]，所以它肯定不是最小值，因此 + 1
             } else {
-                //此时：
-                //arr[left] <= arr[mid] <= arr[right]
-                //arr[left] >= arr[right]
-                //=> arr[left] == arr[mid] == arr[right]，二分搜索失效，借助普通的求最小值的方法
                 break;
             }
+            mid = left + (right - left) / 2;
         }
         return findMinimum(arr);
     }
