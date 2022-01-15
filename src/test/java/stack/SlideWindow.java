@@ -32,18 +32,15 @@ public class SlideWindow {
         int index = 0;
         for (int i = 0; i < arr.length; i++) {
             if (!queue.isEmpty()) {
+                //判断队列的头结点是否过期，若过期则剔除头结点
                 if (i - queue.getFirst() >= w) {
                     queue.removeFirst();
                 }
-                if (!queue.isEmpty()) {
-                    if (arr[queue.getLast()] <= arr[i]) {
-                        while (!queue.isEmpty() && arr[queue.getLast()] < arr[i]) {
-                            queue.removeLast();
-                        }
-                    }
+                while (!queue.isEmpty() && arr[queue.getLast()] <= arr[i]) {
+                    queue.removeLast();
                 }
             }
-            queue.add(i);
+            queue.addLast(i);
             if (i >= w - 1) {
                 result[index++] = arr[queue.getFirst()];
             }
