@@ -1,5 +1,7 @@
 package binarytree.list;
 
+import binarytree.list.entity.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 

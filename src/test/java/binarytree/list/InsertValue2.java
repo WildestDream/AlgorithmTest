@@ -1,5 +1,7 @@
 package binarytree.list;
 
+import binarytree.list.entity.ListNode;
+
 /**
  * 有一个整数val，如何在节点值有序的环形链表中插入一个节点值为val的节点，并且保证这个环形单链表依然有序。
  *

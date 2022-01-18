@@ -1,6 +1,6 @@
 package binarytree.list;
 
-import org.junit.Test;
+import binarytree.list.entity.ListNode;
 
 /**
  * 对于一个链表，我们需要用一个特定阈值完成对它的分化，使得小于等于这个值的结点移到前面，大于该值的结点在后面，同时保证两类结点内部的位置关系不变。
