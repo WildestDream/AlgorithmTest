@@ -1,6 +1,6 @@
-package binarytree.list;
+package list;
 
-import binarytree.list.entity.ListNode;
+import list.entity.ListNode;
 
 /**
  * 如何判断一个单链表是否有环？有环的话返回进入环的第一个节点的值，无环的话返回-1。如果链表的长度为N，请做到时间复杂度O(N)，额外空间复杂度O(1)。

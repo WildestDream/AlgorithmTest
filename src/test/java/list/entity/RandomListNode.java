@@ -1,4 +1,4 @@
-package binarytree.list.entity;
+package list.entity;
 
 public class RandomListNode {
     public int label;

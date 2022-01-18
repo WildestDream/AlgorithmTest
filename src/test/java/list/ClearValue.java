@@ -1,6 +1,6 @@
-package binarytree.list;
+package list;
 
-import binarytree.list.entity.ListNode;
+import list.entity.ListNode;
 
 /**
  * 现在有一个单链表。链表中每个节点保存一个整数，再给定一个值val，把所有等于val的节点删掉。

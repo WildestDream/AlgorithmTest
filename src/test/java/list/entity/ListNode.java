@@ -1,4 +1,4 @@
-package binarytree.list.entity;
+package list.entity;
 
 public class ListNode {
     public int val;

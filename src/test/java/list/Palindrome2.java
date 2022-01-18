@@ -1,6 +1,6 @@
-package binarytree.list;
+package list;
 
-import binarytree.list.entity.ListNode;
+import list.entity.ListNode;
 
 import java.util.Stack;
 

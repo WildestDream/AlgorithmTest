@@ -1,12 +1,12 @@
-package binarytree.list;
+package list;
 
-import binarytree.list.entity.RandomListNode;
+import list.entity.RandomListNode;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ComplexCopyTest {
+public class ComplexCopy {
 
     @Test
     public void test() {
