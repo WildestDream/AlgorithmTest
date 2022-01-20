@@ -1,4 +1,4 @@
-package list;
+package list.chk_intersection;
 
 import list.entity.ListNode;
 
@@ -7,7 +7,7 @@ import list.entity.ListNode;
  *
  * 给定两个链表的头结点headA和headB，请返回一个bool值，代表这两个链表是否相交。保证两个链表长度小于等于500
  */
-public class CheckIntersect {
+public class CheckNonCircleListIntersect {
     public boolean chkIntersect(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) {
             return false;

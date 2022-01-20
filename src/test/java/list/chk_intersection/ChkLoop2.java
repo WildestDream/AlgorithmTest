@@ -1,4 +1,4 @@
-package list;
+package list.chk_intersection;
 
 import list.entity.ListNode;
 

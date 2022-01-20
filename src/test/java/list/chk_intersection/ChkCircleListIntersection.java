@@ -1,11 +1,11 @@
-package list;
+package list.chk_intersection;
 
 import list.entity.ListNode;
 
 /**
  * 两个有环单链表判断是否相交
  */
-public class ChkIntersection {
+public class ChkCircleListIntersection {
     public boolean chkInter(ListNode head1, ListNode head2, int adjust0, int adjust1) {
         if (head1 == null || head2 == null) {
             return false;
