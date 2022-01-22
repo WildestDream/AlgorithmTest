@@ -55,11 +55,4 @@ public class BigStringAdd {
         }
         return builder.toString();
     }
-
-
-    @Test
-    public void test10() {
-        long l = System.currentTimeMillis();
-        System.out.println(l);
-    }
 }

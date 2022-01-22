@@ -1,6 +1,8 @@
 package list;
 
 import list.entity.ListNode;
+import list.util.ListNodeUtil;
+import org.junit.Test;
 
 /**
  * 对于一个链表，我们需要用一个特定阈值完成对它的分化，使得小于等于这个值的结点移到前面，大于该值的结点在后面，同时保证两类结点内部的位置关系不变。
@@ -12,6 +14,13 @@ import list.entity.ListNode;
  * {1,2,4,5}
  */
 public class Divide {
+
+    @Test
+    public void test() {
+        ListNode inputList = ListNodeUtil.buildList(1, 4, 2, 5);
+        ListNode result = listDivide(inputList, 3);
+        System.out.println(ListNodeUtil.getList(result));
+    }
 
     public ListNode listDivide(ListNode head, int val) {
         if (head == null || head.next == null) {
@@ -26,34 +35,28 @@ public class Divide {
         ListNode cur = head;
         while (cur != null) {
             if (cur.val <= val) {
-                if (head1 == null) {
+                if (tail1 == null) {
                     head1 = cur;
                     tail1 = cur;
                 } else {
                     tail1.next = cur;
                     tail1 = tail1.next;
                 }
+                cur = cur.next;
+                tail1.next = null;
             } else {
-                if (head2 == null) {
+                if (tail2 == null) {
                     head2 = cur;
                     tail2 = cur;
                 } else {
                     tail2.next = cur;
                     tail2 = tail2.next;
                 }
+                cur = cur.next;
+                tail2.next = null;
             }
-            cur = cur.next;
         }
-
-        //关键细节：避免出现死循环！！！
-        if (head1 != null) {
-            tail1.next = null;
-        }
-        if (head2 != null) {
-            tail2.next = null;
-        }
-
-        if (head1 != null) {
+        if (tail1 != null) {
             tail1.next = head2;
             return head1;
         }
