@@ -6,6 +6,9 @@ import org.junit.Test;
 import java.util.Arrays;
 
 /**
+ *
+ * 子数据的最大和
+ *
  * 输入一个长度为n的整型数组array，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。
  * 数据范围:
  * 1 <= n <= 2\times10^51<=n<=2×10
@@ -25,7 +28,7 @@ import java.util.Arrays;
  * 说明：
  * 经分析可知，输入数组的子数组[3,10,-4,7,2]可以求得最大和为18
  */
-public class FindGreatestSumOfSubArray {
+public class MaxSumOfSubArray {
 
     @Test
     public void test() {
