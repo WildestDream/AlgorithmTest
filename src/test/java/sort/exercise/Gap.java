@@ -52,23 +52,25 @@ public class Gap {
         if (max == min) {
             return 0;
         }
-        //注意：len + 1,而不是len，因为最大值的bucketIndex会是len
+
+        //注意：len + 1,而不是len，这样才能“逼迫”出空桶
         boolean[] hasNum = new boolean[len + 1];
         int[] mins = new int[len + 1];
         int[] maxs = new int[len + 1];
-        for (int j : A) {
-            int bucketIndex = bucketNum(A, j, min, max);
+
+        for (int val : A) {
+            int bucketIndex = bucketNum(A, val, min, max);
             if (!hasNum[bucketIndex]) {
-                mins[bucketIndex] = j;
-                maxs[bucketIndex] = j;
+                mins[bucketIndex] = val;
+                maxs[bucketIndex] = val;
             } else {
-                mins[bucketIndex] = Math.min(mins[bucketIndex], j);
-                maxs[bucketIndex] = Math.max(maxs[bucketIndex], j);
+                mins[bucketIndex] = Math.min(mins[bucketIndex], val);
+                maxs[bucketIndex] = Math.max(maxs[bucketIndex], val);
             }
             hasNum[bucketIndex] = true;
         }
 
-        int lastHasNumIndex = -1;
+        int lastHasNumIndex = -1; //上一个非空的桶的位置
         int maxGap = Integer.MIN_VALUE;
         for (int i = 0; i < hasNum.length; i++) {
             if (hasNum[i]) {

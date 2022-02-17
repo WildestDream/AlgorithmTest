@@ -75,7 +75,7 @@ public class QuickSort {
         int index = start;
         while (index <= end) {
             if (A[index] <= A[end]) { //最后一个数一定会触发 = 的情况
-                swap(A, ++pivot, index); //++pivot位置的数是右分区的第一个数字，一定大于基准值，所以与它交换
+                swap(A, ++pivot, index);
             }
             index++;
         }

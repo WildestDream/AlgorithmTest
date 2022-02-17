@@ -27,7 +27,7 @@ public class CountingSort {
         System.out.println("duration:" + (end - start) + " ms"); //445 ms
     }
 
-    public int[] countingSort(int[] A, int n) {
+    public void countingSort(int[] A, int n) {
         int max = A[0];
         int min = A[0];
         for (int i = 1; i < n; i++) {
@@ -44,12 +44,11 @@ public class CountingSort {
         int index = 0;
         for (int i = 0; i < buckets.length; i++) {
             if (buckets[i] != 0) {
+                //buckets[i] > 1 的情况，数据可能有重复
                 for (int j = 0; j < buckets[i]; j++) {
                     A[index++] = i + min;
                 }
             }
         }
-
-        return A;
     }
 }
