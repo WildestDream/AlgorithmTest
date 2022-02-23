@@ -17,19 +17,31 @@ public class FoldPaper {
         Assert.assertArrayEquals(new String[]{"down", "down", "up", "down", "down", "up", "up"}, result);
     }
 
+    private final List<String> result = new ArrayList<>();
+
     public String[] foldPaper(int n) {
-        List<String> result = new ArrayList<>();
-        print(false, 1, n, result);
-        return result.toArray(String[]::new);
+        if (n <= 0) {
+            return null;
+        }
+        traverse(false, n, 1);
+        return copyListToArray(result);
     }
 
-    private void print(boolean left, int layer, int N, List<String> result) {
-        if (layer >= N) {
+    private void traverse(boolean left, int n, int curLayer) {
+        if (curLayer == n) {
             result.add(left ? "up" : "down");
             return;
         }
-        print(false, layer + 1, N, result);
+        traverse(false, n, curLayer + 1);
         result.add(left ? "up" : "down");
-        print(true, layer + 1, N, result);
+        traverse(true, n, curLayer + 1);
+    }
+
+    private String[] copyListToArray(List<String> result) {
+        String[] arr = new String[result.size()];
+        for (int i = 0; i < result.size(); i++) {
+            arr[i] = result.get(i);
+        }
+        return arr;
     }
 }

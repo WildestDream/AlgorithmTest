@@ -55,27 +55,42 @@ public class NextNodeTest {
         n7.parent = n3;
 
         Assert.assertEquals(n1, getNextNode(n5));
+        Assert.assertEquals(n2, getNextNode(n4));
+        Assert.assertEquals(n3, getNextNode(n6));
+        Assert.assertEquals(n6, getNextNode(n1));
+        Assert.assertNull(getNextNode(n7));
     }
 
     private FTreeNode getNextNode(FTreeNode root) {
-        FTreeNode cur = root;
-        if (cur == null) {
+        if (root == null) {
             return null;
         }
-        if (cur.right != null) {
-            return cur.right;
+        //1. 右子树不为空，则后继节点是：右子树上的最左节点
+        if (root.right != null) {
+            return findMostLeftNode(root.right);
         }
-        if (cur.parent != null && cur == cur.parent.left) {
-            return cur.parent;
+        //2. 当前节点是父节点的左孩子，则后继节点是父节点
+        if (root.parent != null && root == root.parent.left) {
+            return root.parent;
         }
-        FTreeNode p = cur.parent;
+        //3. 当前节点是父节点的右孩子，则一直向上寻找，直到s 是 p 的左孩子为止，返回 p
+        FTreeNode s = root;
+        FTreeNode p = root.parent;
         while (p != null) {
-            if (cur == p.left) {
+            if (s == p.left) {
                 return p;
             }
-            cur = p;
+            s = s.parent;
             p = p.parent;
         }
+        //4. 直到p为空，s 都不是 p 的左孩子，当前节点不存在后继节点，返回 null。
         return null;
+    }
+
+    private FTreeNode findMostLeftNode(FTreeNode node) {
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node;
     }
 }
