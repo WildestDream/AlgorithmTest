@@ -16,7 +16,6 @@ pipeline {
             input {
                 message "continue to exec performance?"
                 ok "yes, just do it"
-                submitter: "admin"
             }
             steps {
                 bat 'mvn clean install'
