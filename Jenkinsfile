@@ -14,7 +14,7 @@ pipeline {
 
         stage('Deploy') {
             input {
-                message "continue to exec performance?"
+                message "continue to exec performance?" "abort!"
                 ok "yes, just do it"
             }
             steps {
