@@ -11,6 +11,11 @@ pipeline {
                 bat 'mvn clean test'
             }
         }
+        input {
+            message "continue to exec performance?"
+            ok "yes, just do it"
+            submitter: "admin"
+        }
         stage('Deploy') {
             steps {
                 bat 'mvn clean install'
