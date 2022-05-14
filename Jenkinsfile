@@ -14,8 +14,7 @@ pipeline {
 
         stage('Deploy') {
             input {
-                message "continue to exec performance?" "abort!"
-                ok "yes, just do it"
+                message "继续执行压测?"
             }
             steps {
                 bat 'mvn clean install'
