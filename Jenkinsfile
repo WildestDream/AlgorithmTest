@@ -20,5 +20,11 @@ pipeline {
                 bat 'mvn clean install'
             }
         }
+
+        stage('message') {
+            steps {
+                bat 'echo hello world'
+            }
+        }
     }
 }
